@@ -1,5 +1,5 @@
 {
-  "name": "google-map-app",
+  "name": "nearby-points-of-interest",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
