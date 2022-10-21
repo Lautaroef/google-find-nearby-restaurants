@@ -1,4 +1,4 @@
-# Nearby restaurants guide 🗺
+# Nearby points of interest guide 🗺
 ## Available Scripts
 
 In the project directory, you can run:
