@@ -40,22 +40,18 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked }: Props) =
         {places?.length &&
           places?.map((place, i) => (
             <div
+              key={i}
               className={classes.markerContainer}
               // @ts-ignore
               lat={Number(place.latitude)}
+              // @ts-ignore
               lng={Number(place.longitude)}
-              key={i}
             >
               {!matches ? (
                 <LocationOnOutlinedIcon color="primary" fontSize="large" />
               ) : (
                 <Paper elevation={3} className={classes.paper}>
-                  <Typography
-                    // @ts-ignore
-                    className={classes.typography}
-                    variant="subtitle2"
-                    gutterBottom
-                  >
+                  <Typography variant="subtitle2" gutterBottom>
                     {place.name}
                   </Typography>
                   <img

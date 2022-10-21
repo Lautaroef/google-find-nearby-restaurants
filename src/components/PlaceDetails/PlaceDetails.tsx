@@ -15,14 +15,13 @@ import Rating from "@material-ui/lab/Rating";
 import useStyles from "./styles.js";
 
 type Props = {
-  place: any;
+  place: Place;
   selected: boolean;
   refProp: any;
 };
 
 const PlaceDetails = ({ place, selected, refProp }: Props) => {
-  if (selected)
-    refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (selected) refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   const classes = useStyles();
 
   return (
@@ -43,7 +42,7 @@ const PlaceDetails = ({ place, selected, refProp }: Props) => {
         <Box display="flex" justifyContent="space-between" my={2}>
           <Rating name="read-only" value={Number(place.rating)} readOnly />
           <Typography component="legend">
-            {place.num_reviews} review{place.num_reviews > 1 && "s"}
+            {place.num_reviews} review{Number(place.num_reviews) > 1 && "s"}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="space-between">
@@ -58,21 +57,14 @@ const PlaceDetails = ({ place, selected, refProp }: Props) => {
             {place.ranking}
           </Typography>
         </Box>
-        {/* @ts-ignore */}
         {place?.awards?.map((award) => (
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            my={1}
-            alignItems="center"
-          >
+          <Box display="flex" justifyContent="space-between" my={1} alignItems="center">
             <img src={award.images.small} />
             <Typography variant="subtitle2" color="textSecondary">
               {award.display_name}
             </Typography>
           </Box>
         ))}
-        {/* @ts-ignore */}
         {place?.cuisine?.map(({ name }) => (
           <Chip key={name} size="small" label={name} className={classes.chip} />
         ))}
@@ -88,11 +80,7 @@ const PlaceDetails = ({ place, selected, refProp }: Props) => {
           </Typography>
         )}
         {place.phone && (
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            className={classes.spacing}
-          >
+          <Typography variant="body2" color="textSecondary" className={classes.spacing}>
             <PhoneIcon /> {place.phone}
           </Typography>
         )}

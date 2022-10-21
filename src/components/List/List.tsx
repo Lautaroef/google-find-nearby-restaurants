@@ -42,6 +42,7 @@ const List = ({
   const classes = useStyles();
 
   useEffect(() => {
+    // create refs for each place
     setElRefs((refs) =>
       Array(places?.length)
         .fill(0)
@@ -96,7 +97,6 @@ const List = ({
 
           <Grid container spacing={3} className={classes.list}>
             {places ? (
-              //@ts-ignore
               places?.map((place, i: number) => (
                 <Grid ref={elRefs[i]} key={i} item xs={12}>
                   <PlaceDetails
