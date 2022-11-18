@@ -11,6 +11,7 @@ The features of this project were made possible using the APIs of Google Maps an
 ## Technologies
 - React.js
 - Next.js
+- TypeScript
 - Axios
 - MaterialUI
 
